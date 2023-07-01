@@ -1,0 +1,16 @@
+<div
+    class="d-flex flex-column flex-shrink-0 p-3 text-white col-3 justify-content-center align-items-center "
+    style="width: 280px; background-color: #e3e3e3;"
+>
+    {% if user.is_authenticated %}
+        <h1 style="color: #10a37f">Hi, {{user.username}}</h1>
+        <a href="{% url 'logout' %}" type="button" class="btn" style="background-color: #10a37f;">Logout</a>
+    {% else %}
+        <h5 style="color: #10a37f">Already have an account</h5>
+        <a href="{% url 'login' %}" type="button" class="btn mb-3" style="background-color: #10a37f; width: 100px;">Login</a>
+        
+        <h5 style="color: #10a37f">create an account now</h5>
+        <a href="{% url 'register' %}" type="button" class="btn mb-3" style="background-color: #10a37f; width: 100px;">Register</a>
+        
+    {% endif %}
+</div>
