@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block styles %}
 <style>
     body, html {
@@ -78,8 +78,9 @@
           {% for chat in chats %}
             {% if chat.user == request.user %}
   
-              <li class="message sent rounded-lg">
+          <li class="message sent rounded-lg position-relative" style="margin-left: 50px;">
             <div class="message-text">
+              <img src="{% static 'images/user-LOGO.png' %}" class="position-absolute rounded-lg" style="width: 50px; left: -60px; background-color: #00ffc1;" alt="">
               <div class="message-sender">
                 <b>You</b>
               </div>
@@ -89,8 +90,9 @@
             </div>
           </li>
   
-          <li class="message received rounded-lg border border-gray">
+          <li class="message received rounded-lg border border-gray position-relative" style="margin-left: 50px;">
             <div class="message-text">
+              <img src="{% static 'images/ChatGPT-LOGO.png' %}" class="position-absolute rounded-lg" style="width: 100px; left: -85px;" alt="">
               <div class="message-sender">
                 <b>AI Chatbot</b>
               </div>
@@ -106,13 +108,14 @@
         </ul>
         {% else %}
         <ul>
-          <li class="message received rounded-lg border border-gray">
+          <li class="message received rounded-lg border border-gray position-relative" style="margin-left: 50px;">
             <div class="message-text">
+              <img src="{% static 'images/ChatGPT-LOGO.png' %}" class="position-absolute rounded-lg" style="width: 100px; left: -85px;" alt="">
               <div class="message-sender">
                 <b>AI Chatbot</b>
               </div>
               <div class="message-content">
-                You have to create an account first
+                You have to create an account first !!!
               </div>
             </div>
           </li>
@@ -177,7 +180,7 @@
         const messageItem = document.createElement('li');
         messageItem.classList.add('message', 'received');
         messageItem.innerHTML = `
-        <div class="message-text">
+        <div class="message-text position-relative">
             <div class="message-sender">
               <b>AI Chatbot</b>
             </div>
